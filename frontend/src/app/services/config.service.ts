@@ -119,7 +119,7 @@ export class ConfigService {
 
   // update an appointment
   user_update_appointmentData(updatedAppointment: Appointment): Observable<any>{
-    const appointment_url = `${this.config.base_url}appointments/userUpdateAppointment/}`;
+    const appointment_url = `${this.config.base_url}appointments/userUpdateAppointment/`;
     return this.http.put(appointment_url, updatedAppointment);
   }
   getUserInfo(): Observable<any>{
@@ -142,8 +142,8 @@ export class ConfigService {
     return this.http.post(user_url,{});
   }
 
-  patientCreateAppointment(form: any):Observable<any>{
-    const user_url = this.config.base_url + "appointments/PatientCreateAppointment/";
+  CreateNewAppointment(form: any):Observable<any>{
+    const user_url = this.config.base_url + "appointments/CreateNewAppointment/";
     return this.http.post(user_url,form);
   }
   getAvailableAppointment(form: any):Observable<any>{

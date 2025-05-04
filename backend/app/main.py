@@ -31,7 +31,7 @@ app = FastAPI(lifespan=lifespan)
 @app.middleware("http") 
 async def middleware_set_up(request: Request, call_next):
     response: Response = await call_next(request)
-    response.headers["Content-Security-Policy"] = "default-src 'self';" #  Content Security Policy (CSP) Header Not Set
+    # response.headers["Content-Security-Policy"] = "default-src 'self';" #  Content Security Policy (CSP) Header Not Set
     response.headers["X-Frame-Options"] = "SAMEORIGIN" # Missing Anti-clickjacking Header
     response.headers["Cross-Origin-Resource-Policy"] = "same-origin" # 	Insufficient Site Isolation Against Spectre Vulnerability
     response.headers["Permissions-Policy"] = "geolocation=(), camera=(), microphone=(), fullscreen=(self)" # Permissions Policy Header Not Set
